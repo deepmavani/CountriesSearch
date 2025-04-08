@@ -15,10 +15,10 @@ const Countries = () => {
         );
 
         const transformedData = response.data.map((country, index) => ({
-            id: `${country.common}-${index}`,
-            name: country.common || "Unknown",
-            flag: country.png || "https://via.placeholder.com/100x60?text=No+Flag",
-          }));
+          id: `${country.common}-${index}`,
+          name: country.common || "Unknown",
+          flag: country.png || "https://via.placeholder.com/100x60?text=No+Flag",
+        }));
 
         setCountries(transformedData);
         setLoading(false);
@@ -56,10 +56,10 @@ const Countries = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div style={styles.countryCard}>
+      <div style={styles.cardContainer}>
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country) => (
-            <div key={country.id} style={styles.card}>
+            <div key={country.id} className="countryCard" style={styles.card}>
               <img
                 src={country.flag}
                 alt={`Flag of ${country.name}`}
@@ -72,7 +72,9 @@ const Countries = () => {
                   }
                 }}
               />
-              <h2 style={styles.name}>{country.name}</h2>
+              <h2 className="countryName" style={styles.name}>
+                {country.name}
+              </h2>
             </div>
           ))
         ) : (
@@ -102,7 +104,7 @@ const styles = {
     borderRadius: "6px",
     border: "1px solid #ccc",
   },
-  countryCard: {
+  cardContainer: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
