@@ -56,7 +56,7 @@ const Countries = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <div style={styles.countriesContainer}>
+      <div style={styles.countryCard}>
         {filteredCountries.length > 0 ? (
           filteredCountries.map((country) => (
             <div key={country.id} style={styles.card}>
@@ -72,7 +72,7 @@ const Countries = () => {
                   }
                 }}
               />
-              <h3 style={styles.name}>{country.name}</h3>
+              <h2 style={styles.name}>{country.name}</h2>
             </div>
           ))
         ) : (
@@ -102,7 +102,7 @@ const styles = {
     borderRadius: "6px",
     border: "1px solid #ccc",
   },
-  countriesContainer: {
+  countryCard: {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
